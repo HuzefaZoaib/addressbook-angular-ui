@@ -1,0 +1,25 @@
+<div> 
+    <label for="name">Name</label>
+    <input id="name" type="text" required [(ngModel)]="model.name" minlength="3" maxlength="25"pattern="[a-zA-Z ]*" #name="ngModel" />
+    <span *ngIf="name.invalid && (name.dirty || name.touched)" class="errorMsg">
+        Name should be alphabet between 3 - 25 letters 
+    </span>
+    <br/>
+    <label for="phone">Phone</label>
+    <input id="phone" #phone="ngModel" type="text" required [(ngModel)]="model.phone" minlength="3" maxlength="12" />
+    <span *ngIf="phone.invalid && (name.dirty || name.touched)" class="errorMsg">
+        Phone should be numbers between 3 - 12 letters 
+    </span>
+    <br/>
+    <label for="address">Address</label>
+    <input id="address" #address="ngModel" type="text" required [(ngModel)]="model.address" minlength="3" maxlength="25" />
+    <span *ngIf="address.invalid && (name.dirty || name.touched)" class="errorMsg">
+        Address should be alphabet between 3 - 25 letters 
+    </span>
+    <br/>
+    <button *ngIf="!name.invalid && !phone.invalid && !address.invalid" 
+        type="submit" (click)="onSubmit()">Submit</button>
+    <button *ngIf="name.invalid || phone.invalid || address.invalid" 
+        type="button" disabled>Submit</button>
+</div>
+

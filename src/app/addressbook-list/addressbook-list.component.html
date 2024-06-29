@@ -1,0 +1,22 @@
+<div *ngIf="addressBookService.IS_BACKEND_DOWN" class="warning-msg">
+  Backend API is down, application will be running locally. 
+  <br/>However, still you can add new address.
+</div>
+<table>
+    <thead>
+      <tr>
+        <th class="header">ID</th>
+        <th class="header">Name</th>
+        <th class="header">Phone</th>
+        <th class="header">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let address of addressess">
+        <td>{{address.id}}</td>
+        <td>{{address.name}}</td>
+        <td>{{address.phone}}</td>
+        <td>{{address.address}}</td>
+      </tr>
+    </tbody>
+</table>
