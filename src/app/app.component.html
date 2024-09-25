@@ -9,3 +9,9 @@
 </nav>
 <br/>
 <router-outlet></router-outlet>
+
+
+<!-- subscription to loading observable -->
+<div class="loading" *ngIf="loading$ | async">
+    <h1>Please wait...</h1>
+</div>

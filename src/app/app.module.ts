@@ -8,7 +8,8 @@ import { AddressbookAddComponent } from './addressbook-add/addressbook-add.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoaderInterceptor } from './loader-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

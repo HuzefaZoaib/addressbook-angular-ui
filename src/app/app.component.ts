@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoaderService } from './loader.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Addressbook Angular UI';
+  
+  loading$ = this.loader.isLoading$;
+  
+  constructor(public loader:LoaderService){}
 }
